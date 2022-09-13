@@ -1,0 +1,223 @@
+.App {
+	text-align: center;
+}
+
+.App-logo {
+	height: 40vmin;
+	pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
+}
+
+.App-header {
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+}
+
+.App-link {
+	color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+}
+.headerBtn {
+	width: 20%;
+	display: flex;
+	justify-content: space-around;
+}
+.btn-orange {
+	background-color: #ec8013;
+	color: white;
+	text-decoration: none;
+	border: #ec8013;
+	font-weight: 500;
+	width: 120px;
+	height: 40px;
+	box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+}
+.btn-black {
+	background-color: #192528;
+	color: white;
+	border: #192528;
+	font-weight: 500;
+	width: 120px;
+	height: 40px;
+	box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+}
+
+.jadwal-card {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: white;
+	width: 50%;
+	height: 90px;
+	border-radius: 20px;
+	box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+}
+.jadwal-page {
+	margin-top: 100px;
+}
+.bg-content-jadwal {
+	background-color: #ffd18f;
+	margin-top: 65px;
+}
+.content-jadwal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 30px;
+}
+.title-page {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+}
+
+.ruang-card {
+	width: 550px;
+	height: 500px;
+	background-color: #ec8013;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 20px;
+	border-radius: 20px;
+	box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+}
+.ruang-card img {
+	width: 80%;
+	margin: 20px;
+	border-radius: 20px;
+}
+.card-title {
+	font-size: 25px;
+	color: white;
+	margin-top: 10px;
+}
+.content-ruang {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 30px;
+}
+.titik {
+	height: 900px;
+	width: 900px;
+	background-color: #ffd18f;
+	border-radius: 50%;
+	display: inline-block;
+	position: absolute;
+	top: -450px;
+	right: -450px;
+	z-index: -1000;
+}
+
+.bg-content-detail {
+	background-color: #ffd18f;
+	padding-top: 100px;
+}
+.bar {
+	display: inline-block;
+	position: absolute;
+	height: 100px;
+	width: 100%;
+	top: 0px;
+	z-index: -1000;
+	background-color: #ffd18f;
+}
+.detail-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.detail-card {
+	width: 100%;
+	height: 300px;
+	background-color: white;
+	margin: 50px;
+	font-size: 20px;
+	border-radius: 20px;
+	box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 10px 8px 8px -2px rgba(0, 0, 0, 0.22);
+}
+.detail-card p {
+	margin: 20px;
+	text-align: center;
+}
+.detail-pinjam {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100px;
+}
+.detail-pinjam-btn {
+	width: 400px;
+	height: 50px;
+}
+.detail-back-btn {
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.content-login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 40px;
+}
+.bg-content-login {
+	height: 746px;
+}
+
+.admin-card {
+	height: 200px;
+}
+.btn-biru {
+	background-color: #1384ec;
+	width: 100px;
+}
+.btn-merah {
+	background-color: #ec2013;
+	width: 100px;
+}
