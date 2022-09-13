@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import { deleteJadwal } from '../../../services/api';
 
-const AdminCard = () => {
+const AdminCard = (props) => {
+	console.log(props);
+	const [refresh, setRefresh] = useState(false);
+	const tanggal = props.tanggal.slice(0, 10);
+	const waktu = props.waktu.slice(0, 5);
+
 	const deleteData = () => {
 		Swal.fire({
 			title: 'Are you sure?',
@@ -14,10 +20,10 @@ const AdminCard = () => {
 			confirmButtonText: 'Yes, delete it!',
 		}).then((result) => {
 			if (result.isConfirmed) {
-				// axios.delete(`http://localhost:8000/gedung/${item}`).then(() => {
-				// 	setRefresh(!refresh);
-				Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
-				// });
+				deleteJadwal(props.id).then(() => {
+					setRefresh(!refresh);
+					Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+				});
 			}
 		});
 	};
@@ -25,21 +31,24 @@ const AdminCard = () => {
 		<div className="jadwal-card admin-card">
 			<div>
 				<div>
-					<b>Ruang A</b>
+					<b>{props.ruang}</b>
 				</div>
 				<div>
-					<p>8PM 20-08-2022</p>
-				</div>
-				<div>
-					<p>Aldiza Muhammad Satria</p>
-				</div>
-				<div>
-					<p>Untuk meeting dengan artis</p>
+					<p>
+						Tanggal: {tanggal} <br />
+						Waktu: {waktu}
+						<br />
+						Durasi: {props.durasi} Jam
+						<br />
+						Nama: {props.nama}
+						<br />
+						Keterangan: {props.ket}
+					</p>
 				</div>
 			</div>
-			<Button variant="primary" className="btn-biru">
+			{/* <Button variant="primary" className="btn-biru">
 				Update
-			</Button>
+			</Button> */}
 			<Button
 				variant="danger"
 				className="btn-merah"

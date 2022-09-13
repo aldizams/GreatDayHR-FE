@@ -1,24 +1,22 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-const RuangCard = () => {
+const RuangCard = (props) => {
+	console.log(props);
 	return (
 		<div className="ruang-card">
 			<div>
-				<b className="card-title">Ruang A</b>
+				<b className="card-title">{props.name}</b>
 			</div>
-			<img
-				src="https://images.unsplash.com/photo-1503423571797-2d2bb372094a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-				alt="foto ruangan"
-			/>
+			<img src={props.img} alt="foto ruangan" />
 			<Button
 				variant="dark"
 				className="btn-black"
 				as={Link}
-				to="/ruangan/detail"
+				to={`/ruangan/detail/${props.id}`}
 				style={{ marginBottom: '20px' }}
 			>
-				Detail Ruang
+				Detail
 			</Button>
 		</div>
 	);

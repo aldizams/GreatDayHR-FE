@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
-const JadwalCard = () => {
+const JadwalCard = (props) => {
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+	const tanggal = props.tanggal.slice(0, 10);
+	const waktu = props.waktu.slice(0, 5);
+
 	return (
 		<div className="jadwal-card">
 			<div>
 				<div>
-					<b>Ruang A</b>
+					<b>{props.ruang}</b>
 				</div>
 				<div>
-					<p>8PM 20-08-2022</p>
+					<p>
+						{waktu} <br />
+						{tanggal}
+					</p>
 				</div>
 			</div>
 			<Button variant="warning" className="btn-orange" onClick={handleShow}>
@@ -23,11 +29,11 @@ const JadwalCard = () => {
 					<Modal.Title>Detail</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<div>Nama: Aldiza Muhammad Satria</div>
-					<div>Tanggal: 20-08-2022</div>
-					<div>Mulai: 8PM</div>
-					<div>Durasi: 3 Jam</div>
-					<div>Keterangan: Meeting sama artis</div>
+					<div>Nama: {props.nama}</div>
+					<div>Tanggal: {tanggal}</div>
+					<div>Mulai: {waktu}</div>
+					<div>Durasi: {props.durasi} Jam</div>
+					<div>Keterangan:{props.ket}</div>
 				</Modal.Body>
 			</Modal>
 		</div>

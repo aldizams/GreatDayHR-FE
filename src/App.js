@@ -16,7 +16,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<JadwalPage />} />
 				<Route path="/ruangan" element={<RuangPage />} />
-				<Route path="/ruangan/detail" element={<DetailPage />} />
+				<Route path="/ruangan/detail/:id" element={<DetailPage />} />
 				<Route path="/admin/login" element={<LoginPage />} />
 				<Route path="/admin" element={<AdminPage />} />
 			</Routes>

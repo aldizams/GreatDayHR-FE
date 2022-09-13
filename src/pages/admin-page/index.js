@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { AdminCard } from '../../components';
+import { getAllJadwal } from '../../services/api';
 
 const AdminPage = () => {
 	window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+	const [jadwal, setJadwal] = useState([]);
 
+	const fetchApi = async () => {
+		getAllJadwal().then((res) => {
+			setJadwal(res.data);
+		});
+	};
+	useEffect(() => {
+		fetchApi();
+		console.log(jadwal);
+	}, []);
 	return (
 		<>
 			<Container flex="sm" className="jadwal-page">
@@ -14,24 +25,20 @@ const AdminPage = () => {
 			</Container>
 			<div className="bg-content-jadwal">
 				<Container flex="sm">
-					<div className="content-jadwal">
-						<AdminCard />
-					</div>
-					<div className="content-jadwal">
-						<AdminCard />
-					</div>
-					<div className="content-jadwal">
-						<AdminCard />
-					</div>
-					<div className="content-jadwal">
-						<AdminCard />
-					</div>
-					<div className="content-jadwal">
-						<AdminCard />
-					</div>
-					<div className="content-jadwal">
-						<AdminCard />
-					</div>
+					{jadwal.map((item) => (
+						<div className="content-jadwal">
+							<AdminCard
+								key={item.id}
+								id={item.id}
+								ruang={item.nama_ruang}
+								tanggal={item.tanggal_pinjam}
+								waktu={item.waktu_pinjam}
+								durasi={item.durasi_pinjam.hours}
+								nama={item.nama_peminjam}
+								ket={item.ket_peminjaman}
+							/>
+						</div>
+					))}
 				</Container>
 			</div>
 		</>

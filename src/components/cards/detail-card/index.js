@@ -1,9 +1,9 @@
 import React from 'react';
 
-const DetailCard = () => {
+const DetailCard = (props) => {
 	return (
 		<div className="detail-card">
-			<p>DetailCard</p>
+			<p>{props.detail}</p>
 		</div>
 	);
 };
