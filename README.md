@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+# Aplikasi Management Ruangan
+Aplikasi ini digunakan untuk melakukan penjadwalan dalam menggunakan ruangan.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pengguna dapat melihat jadwal yang tersedia dan juga melakukan reservasi ruangan.
+![image](https://user-images.githubusercontent.com/70066983/190087351-521dda16-9f8b-4a8e-b53e-30307f165db9.png)
 
-## Available Scripts
+Pengguna juga dapat memilih ruangan yang ada, ruagan-ruangan tersebut memiliki gambar dan juga penjelasan dari ruangannya.
+![image](https://user-images.githubusercontent.com/70066983/190088197-dee4a6a8-03f8-4684-9453-65e2d16dbdb0.png)
+![image](https://user-images.githubusercontent.com/70066983/190088273-bd325085-56a6-4430-894c-5d29e0a0f91b.png)
 
-In the project directory, you can run:
+Untuk melakukan reservasi, pengguna harus terlebih dahulu mengisi form yang ada dengan menekan tombol pinjam ruangan
+![image](https://user-images.githubusercontent.com/70066983/190088477-5622053c-69c0-456f-841c-180a053a6d3b.png)
+Setelah form diisi, pengguna akan dikembalikan ke menu jadwal dan pengguna dapat melihat ruangan yang telah direservasi
 
-### `npm start`
+Admin dapat melakukan penghapusan terhadap jadwal yang telah tersedia.
+Untuk masuk ke dalam halaman admin, admin terlebih dahulu masuk ke dalam halaman login melalui rute /admin/login
+![image](https://user-images.githubusercontent.com/70066983/190088768-02ed9963-7e6c-4b77-b862-d089289a2874.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Kemudian untuk melakuakan penghapusan, admin cukup menekan tombol delete dan melakukan konfirmasi
+![image](https://user-images.githubusercontent.com/70066983/190088877-60f67e58-1678-49e2-894e-234d71603a23.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+(dalam pengembangannya, masih terdapat kesulitan dalam melakukan deploy terhadap backend dikarenakan kurangnya pengalaman dalam melakukan deploy backend)
