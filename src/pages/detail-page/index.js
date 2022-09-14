@@ -3,7 +3,7 @@ import { Container, Button, Modal, Form } from 'react-bootstrap';
 import { DetailCard } from '../../components';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { getByIdRuangan } from '../../services/api';
+import { addJadwal, getByIdRuangan } from '../../services/api';
 
 const DetailPage = () => {
 	const [modalShow, setModalShow] = useState(false);
@@ -12,6 +12,13 @@ const DetailPage = () => {
 	const navigate = useNavigate();
 	const params = useParams();
 	const [ruang, setRuang] = useState([]);
+	const [validated, setValidated] = useState(false);
+	const [id_ruang, setId_ruang] = useState('');
+	const [nama_peminjam, setNama_peminjam] = useState('');
+	const [tanggal_pinjam, setTanggal_pinjam] = useState('');
+	const [waktu_pinjam, setWaktu_pinjam] = useState('');
+	const [durasi_pinjam, setDurasi_pinjam] = useState('');
+	const [ket_peminjaman, setKet_peminjaman] = useState('');
 
 	const fetchApi = async () => {
 		getByIdRuangan(params.id).then((res) => {
@@ -31,6 +38,52 @@ const DetailPage = () => {
 			showConfirmButton: false,
 			timer: 1300,
 		});
+	};
+	const modalError = () => {
+		Swal.fire({
+			position: 'center',
+			icon: 'error',
+			title: 'Peminjaman Gagal',
+			showConfirmButton: false,
+			timer: 1300,
+		});
+	};
+	const Submit = (
+		id_ruang,
+		nama_peminjam,
+		tanggal_pinjam,
+		waktu_pinjam,
+		durasi_pinjam,
+		ket_peminjaman
+	) => {
+		const bodyJSON = {
+			id_ruang: id_ruang,
+			nama_peminjam: nama_peminjam,
+			tanggal_pinjam: tanggal_pinjam,
+			waktu_pinjam: waktu_pinjam,
+			durasi_pinjam: durasi_pinjam,
+			ket_peminjaman: ket_peminjaman,
+		};
+		console.log(bodyJSON);
+		return addJadwal(bodyJSON);
+	};
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		await Submit(
+			id_ruang,
+			nama_peminjam,
+			tanggal_pinjam,
+			waktu_pinjam,
+			durasi_pinjam,
+			ket_peminjaman
+		)
+			.then(() => {
+				handleClose();
+				modalSuccess();
+				setTimeout(() => navigate('/'), 1300);
+			})
+			.catch(() => modalError());
 	};
 
 	window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -71,7 +124,10 @@ const DetailPage = () => {
 						<Button
 							variant="warning"
 							className="btn-orange detail-pinjam-btn"
-							onClick={() => handleShow()}
+							onClick={() => {
+								handleShow();
+								setId_ruang(item.id);
+							}}
 						>
 							PINJAM RUANGAN
 						</Button>
@@ -81,59 +137,85 @@ const DetailPage = () => {
 								<Modal.Title>Form Peminjaman Ruang</Modal.Title>
 							</Modal.Header>
 							<Modal.Body>
-								<Form>
+								<Form noValidate validated={validated} onSubmit={handleSubmit}>
 									<Form.Group
 										className="mb-3"
 										controlId="exampleForm.ControlInput1"
 									>
 										<Form.Label>Name</Form.Label>
-										<Form.Control type="text" placeholder="Great Day HR" />
+										<Form.Control
+											type="text"
+											placeholder="Great Day HR"
+											onChange={(e) => setNama_peminjam(e.target.value)}
+											value={nama_peminjam}
+											required
+										/>
 									</Form.Group>
 									<Form.Group
 										className="mb-3"
 										controlId="exampleForm.ControlInput1"
 									>
 										<Form.Label>Date</Form.Label>
-										<Form.Control type="date" placeholder="yyyy-mm-dd" />
+										<Form.Control
+											type="date"
+											placeholder="yyyy-mm-dd"
+											onChange={(e) => setTanggal_pinjam(e.target.value)}
+											value={tanggal_pinjam}
+											required
+										/>
 									</Form.Group>
 									<Form.Group
 										className="mb-3"
 										controlId="exampleForm.ControlInput1"
 									>
 										<Form.Label>Waktu Mulai</Form.Label>
-										<Form.Control type="time" placeholder="hh:mm" />
+										<Form.Control
+											type="time"
+											placeholder="hh:mm"
+											onChange={(e) => setWaktu_pinjam(e.target.value)}
+											value={waktu_pinjam}
+											required
+										/>
 										<Form.Label>Durasi</Form.Label>
-										<Form.Control type="time" placeholder="hh:mm" />
+										<Form.Control
+											type="time"
+											placeholder="hh:mm"
+											onChange={(e) => setDurasi_pinjam(e.target.value)}
+											value={durasi_pinjam}
+											required
+										/>
 									</Form.Group>
 									<Form.Group
 										className="mb-3"
 										controlId="exampleForm.ControlTextarea1"
 									>
 										<Form.Label>Keterangan</Form.Label>
-										<Form.Control as="textarea" rows={3} />
+										<Form.Control
+											as="textarea"
+											rows={3}
+											onChange={(e) => setKet_peminjaman(e.target.value)}
+											value={ket_peminjaman}
+											required
+										/>
 									</Form.Group>
+									<Modal.Footer>
+										<Button
+											variant="dark"
+											className="btn-black"
+											onClick={handleClose}
+										>
+											Close
+										</Button>
+										<Button
+											type="submit"
+											variant="warning"
+											className="btn-orange"
+										>
+											Pinjam
+										</Button>
+									</Modal.Footer>
 								</Form>
 							</Modal.Body>
-							<Modal.Footer>
-								<Button
-									variant="dark"
-									className="btn-black"
-									onClick={handleClose}
-								>
-									Close
-								</Button>
-								<Button
-									variant="warning"
-									className="btn-orange"
-									onClick={() => {
-										handleClose();
-										modalSuccess();
-										setTimeout(() => navigate('/'), 1300);
-									}}
-								>
-									Pinjam
-								</Button>
-							</Modal.Footer>
 						</Modal>
 					</Container>
 				</>

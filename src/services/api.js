@@ -19,11 +19,14 @@ const getByIdJadwal = (id) => {
 const deleteJadwal = (id) => {
 	return axios.delete(`${BASE_URL}/${id}`);
 };
-
+const addJadwal = (bodyJSON) => {
+	return axios.post(`${BASE_URL}`, bodyJSON);
+};
 export {
 	getAllRuangan,
 	getByIdRuangan,
 	getAllJadwal,
 	getByIdJadwal,
 	deleteJadwal,
+	addJadwal,
 };

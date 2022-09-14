@@ -4,9 +4,7 @@ import { AdminCard } from '../../components';
 import { getAllJadwal } from '../../services/api';
 
 const AdminPage = () => {
-	window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 	const [jadwal, setJadwal] = useState([]);
-
 	const fetchApi = async () => {
 		getAllJadwal().then((res) => {
 			setJadwal(res.data);
@@ -15,7 +13,7 @@ const AdminPage = () => {
 	useEffect(() => {
 		fetchApi();
 		console.log(jadwal);
-	}, []);
+	}, [jadwal]);
 	return (
 		<>
 			<Container flex="sm" className="jadwal-page">
