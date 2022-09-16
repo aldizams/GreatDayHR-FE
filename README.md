@@ -19,4 +19,9 @@ Untuk masuk ke dalam halaman admin, admin terlebih dahulu masuk ke dalam halaman
 Kemudian untuk melakuakan penghapusan, admin cukup menekan tombol delete dan melakukan konfirmasi
 ![image](https://user-images.githubusercontent.com/70066983/190088877-60f67e58-1678-49e2-894e-234d71603a23.png)
 
+Berikut adalah link desain yang dibuat dengan menggunakan figma:
+https://www.figma.com/file/TgnVs445VdIaY1MYxi1cLf/Aplikasi-Manajemen-Ruangan-GreatDay-HR?node-id=0%3A1
+
 (dalam pengembangannya, masih terdapat kesulitan dalam melakukan deploy terhadap backend dikarenakan kurangnya pengalaman dalam melakukan deploy backend)
+
+Vercel Link : https://great-day-hr-2wc4m3pce-aldizams.vercel.app/
